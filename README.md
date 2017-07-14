@@ -2,6 +2,7 @@
 A simple Scala Swagger Playframework App
 
 `brew install sbt`
+
 `sbt run`
 
 
