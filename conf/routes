@@ -1,0 +1,16 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Swagger - Root Resources Listing
+GET     /swagger.json               controllers.ApiHelpController.getResources
+
+
+GET    /user/swagger.json          controllers.ApiHelpController.getResource(path = "/user")
+GET    /user/profile/:userId        controllers.UserApiController.getProfile(userId: Int)
+GET    /user/offers/:userId         controllers.UserApiController.getOffers(userId: Int)
+POST   /user/offers/:userId         controllers.UserApiController.addOffer(userId: Int)
+GET    /user/rewards/:userId        controllers.UserApiController.getRewards(userId: Int)
+POST   /user/rewards/:userId        controllers.UserApiController.addReward(userId: Int)
+POST   /user/redeem                 controllers.UserApiController.redeemReward
+POST   /user/update                 controllers.UserApiController.updatePoints
