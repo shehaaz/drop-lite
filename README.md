@@ -1,42 +1,60 @@
-# Swagger Playframework Sample App
+# Drop Lite
+A simple Scala Swagger Playframework App
 
-## Overview
-This is a scala project to build a stand-alone server which implements the OpenAPI Spec.  You can find out 
-more about both the spec and the framework at http://swagger.io.  There is an online version of this
-server at [http://petstore.swagger.io](http://petstore.swagger.io)
+`brew install sbt`
+`sbt run`
 
-## Version compatibility
-=======
-This version is compatible with Play 2.4.0 and Swagger 1.5.0-SNAPSHOT
 
-### To build Swagger from source (optional)
-Please follow instructions to build the top-level [swagger-core project](https://github.com/swagger-api/swagger-play)
+The route definitions
+conf/routes
 
-### To run
-The swagger-play2 module lives in maven central:
+In this example **userId = 1**
 
-```scala
-val appDependencies: Seq[sbt.ModuleID] = Seq(
-  /* your other dependencies */
-  "io.swagger" %% "swagger-play2" % "1.5.0-SNAPSHOT"
-)
+**GET** http://localhost:9000/user/profile/1
+
+**POST** http://localhost:9000/user/update
+```$xslt
+{
+  "userId": 1,
+  "points": 6091
+}
 ```
 
-You can run the sample app as such:
+**GET** http://localhost:9000/user/offers/1
 
+**POST** http://localhost:9000/user/offers/1
+```$xslt
+{
+  "id": 4,
+  "merchant": "WealthSimple",
+  "points": "75000",
+  "offer" : "Sign up",
+  "isActive": true
+}
 ```
-sbt run
+
+**GET** http://localhost:9000/user/rewards/1
+
+**POST** http://localhost:9000/user/rewards/1
+```$xslt
+
+{
+    "id": 4,
+    "merchant": "Wholefoods",
+    "pointsNeeded": 25000,
+    "reward": "25$"
+}
 ```
-or
+
+**POST** http://localhost:9000/user/redeem
+```$xslt
+{
+    "userId": 1,
+    "rewardId": 3
+}
 ```
-activator testProd
-````
-
-The application will listen on port 9000 and respond to `http://localhost:9000/swagger.json`
-
-You can test the sample app as such:
 
 
-````
-activator test
-````
+
+
+
